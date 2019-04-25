@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><h:outputText value="#{msg['ap.title']}" /></title>
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputScript library="js" name="jquery.color-2.1.2.min.js" />
+</h:head>
+<h:body>
+	<div id="page">
+		<f:view>
+			<ui:insert name="header">
+				<ui:include src="header.xhtml" />
+			</ui:insert>
+
+			<div id="layoutContent" style="margin-bottom: 40px; margin-left: 10px; margin-right: 10px;">
+				<div style="float: left; width: 200; margin-right: 10px;">
+					<ui:insert name="menu">
+						<ui:include src="menu.xhtml" />
+					</ui:insert>
+				</div>
+				<div style="float: center;">
+					<ui:insert name="content">
+						<ui:include src="content.xhtml" />
+					</ui:insert>
+				</div>
+			</div>
+			<ui:insert name="footer">
+				<ui:include src="footer.xhtml" />
+			</ui:insert>
+		</f:view>
+	</div>
+</h:body>
+</html>
