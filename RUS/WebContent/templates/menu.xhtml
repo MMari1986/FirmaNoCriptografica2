@@ -1,6 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -8,20 +6,63 @@
 	xmlns:p="http://primefaces.org/ui">
 <body>
 	<ui:composition>
-	
-		<div id="menu">
-			<h:form id="fM">
-				<ul>
-					<li><p:commandLink id="idioma" actionListener="#{logicBean.newLocale()}" update="@all">
-							<h:graphicImage id="bandera" library="img" name="es.png" />
-						</p:commandLink>
-					</li>
-				</ul>
-			</h:form>
-			<h:form id="fSalir">
-				<p:remoteCommand name="logOut"/>
-			</h:form>
-		</div>
+		<div class="main">
+				<nav class="cbp-hsmenu-wrapper" id="cbp-hsmenu-wrapper">
+					<div class="cbp-hsinner">
+						<ul class="cbp-hsmenu">
+							<li>
+								<a href="#">#{msg['menu.registrate']}</a>
+							</li>
+							<li>
+								<a href="#">#{msg['menu.perfil']}</a>
+								<ul class="cbp-hssubmenu">
+									<li>
+										<a href="#">
+											<img src="#{facesContext.externalContext.requestContextPath}/resources/images/changepassword.png" alt="pasword"/>
+											<span>#{msg['menu.perfil.cambiarpasword']}</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="#{facesContext.externalContext.requestContextPath}/resources/images/generarcodigo.png" alt="código"/>
+											<span>#{msg['menu.perfil.generacodigo']}</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="#{facesContext.externalContext.requestContextPath}/resources/images/cambiardatos.png" alt="datos"/>
+											<span>#{msg['menu.perfil.cambiardatos']}</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">#{msg['menu.documentos']}</a>
+								<ul class="cbp-hssubmenu cbp-hssub-rows">
+									<li>
+										<a href="#">
+											<img src="#{facesContext.externalContext.requestContextPath}/resources/images/firmardocumento.png" alt="firmar"/>
+											<span>#{msg['menu.documentos.firmar']}</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="#{facesContext.externalContext.requestContextPath}/resources/images/validarfirma.png" alt="validar"/>
+											<span>#{msg['menu.documentos.validar']}</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="#{facesContext.externalContext.requestContextPath}/resources/images/verdocumentos.png" alt="img09"/>
+											<span>#{msg['menu.documentos.ver']}</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
 	</ui:composition>
 </body>
 </html>
