@@ -62,7 +62,6 @@
 	color: #02639d;
 }
 
-/* Add an arrow to the main menu link if it has a submenu (not the only child) */
 .cbp-hsmenu > li > a:not(:only-child):before {
 	display: inline-block;
 	font-family: 'bpmenu';
@@ -84,7 +83,6 @@
 	content: "\f106";
 }
 
-/* Add a triangle to currently open menu item link */
 .cbp-hsmenu > li.cbp-hsitem-open > a:after {
 	top: 100%;
 	border: solid transparent;
@@ -100,14 +98,13 @@
 	margin-left: -10px;
 }
 
-/* Submenu style */
 .cbp-hssubmenu {
 	position: absolute;
 	left: 0;
 	top: 100%;
 	width: 100%;
 	z-index: 0;
-	text-align: center; /* for aligning the sub items */
+	text-align: center;
 	visibility: hidden;
 }
 
@@ -120,7 +117,6 @@
 	clear: both; 
 }
 
-/* Let's allow 6 item in a row */
 .cbp-hssubmenu > li {
 	width: 16.2%;
 	display: inline-block;
@@ -132,17 +128,14 @@
 	transition: opacity 0.1s 0s;
 }
 
-/* First 6 items don't have upper box shadow */
 .cbp-hssubmenu > li:nth-child(-n+6) {
 	box-shadow: -28px 0 0 -27px #ddd;
 } 
 
-/* Every 7th item does not have a left box shadow */
 .cbp-hssubmenu > li:nth-child(6n+1) {
 	box-shadow:  0 -28px 0 -27px #ddd;
 }
 
-/* The first one does not have any box shadow */
 .cbp-hssubmenu > li:first-child {
 	box-shadow: none;
 }
@@ -263,24 +256,16 @@
 	.cbp-hsmenu > li.cbp-hsitem-open .cbp-hssubmenu {
 		height: auto;
 	}
-
-	/* Let's only allow 3 item in a row now */
 	.cbp-hssubmenu > li {
 		width: 30%;
 	}
-
-	/* Reset box shadows for the 6 items in row case */
 	.cbp-hssubmenu > li:nth-child(-n+6),
 	.cbp-hssubmenu > li:nth-child(6n+1) {
 		box-shadow: -28px 0 0 -27px #ddd, 0 -28px 0 -27px #ddd;
 	}
-
-	/* First 4 items don't have upper box shadow */
 	.cbp-hssubmenu > li:nth-child(-n+3) {
 		box-shadow: -28px 0 0 -27px #ddd;
 	} 
-
-	/* Every 5th item does not have a left box shadow */
 	.cbp-hssubmenu > li:nth-child(3n+1) {
 		box-shadow:  0 -28px 0 -27px #ddd;
 	}

@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+    
+.textoMenu{
+	font-size: 0.8em;
+}
+
+#contenido{
+  height:100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+

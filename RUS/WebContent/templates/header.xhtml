@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html">
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
 	<ui:composition>
 			<header class="clearfix">
 				<span>#{msg['ap.title']} <span class="bp-icon bp-icon-about" data-content="#{msg['ap.title.data']}‎" /></span>
 				<h1>#{msg['ap.subtitle']}</h1>
 				<nav>
-					<a href="#" class="bp-icon bp-icon-drop" data-info="#{msg['ap.miperfil']}">
-						<span>#{msg['ap.miperfil']}</span>
-					</a>
-					<a href="#" class="bp-icon bp-icon-archive" data-info="#{msg['ap.salir']}">
-						<span>#{msg['ap.salir']}</span>
-					</a>
+					<h:form id="formAcceso">					
+						<p:commandLink action="/formularios/login?faces-redirect=true" styleClass="bp-icon bp-icon-drop" title="#{msg['ap.entrar']}" rendered="#{!loginBean.estaLogeado()}">
+							<span>#{msg['ap.entrar']}</span>
+							<f:setPropertyActionListener target="#{logicaBean.operacion}" value="login" />
+						</p:commandLink>
+						
+						<p:commandLink action="/index?faces-redirect=true" actionListener="#{loginBean.logout}" oncomplete="logout(xhr, status, args)" rendered="#{loginBean.estaLogeado()}" styleClass="bp-icon bp-icon-archive" title="#{msg['ap.salir']}" >
+							<span>#{msg['ap.salir']}</span>
+							<f:setPropertyActionListener target="#{logicaBean.operacion}" value="invalidate" />
+						</p:commandLink>
+					</h:form>
 				</nav>
 			</header>	
 	</ui:composition>
-</body>
 </html>
