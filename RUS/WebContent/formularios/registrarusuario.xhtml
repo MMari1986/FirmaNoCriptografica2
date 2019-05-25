@@ -5,17 +5,77 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions">
 
-	<ui:composition template="/templates/plantilla.xhtml">
-		<ui:define name="content">
-			<h:form id="info">
-					<p:row>
-						<h3>
-							<h:outputText value="#{logicaBean.operacion}" />
-						</h3>
-					</p:row>
-			</h:form>
-		</ui:define>
-	</ui:composition>
+<ui:composition template="/templates/plantilla.xhtml">
+	<ui:define name="content">
+		<h:form id="formRegistro"  rendered="#{usuarioBean.contenidoQR == null}">
+			<p:panel header="#{msg['registro.cabecera']}">
+				<h:panelGrid columns="2" cellpadding="5" footerClass="centrado">
+				
+					<p:outputLabel value="#{msg['user.numdocumento']}" for="numDocumento" />
+					<p:inputText id="numDocumento"
+						value="#{usuarioBean.numeroDocumento}" required="true"
+						requiredMessage="#{msg['registro.novacio']}"
+						converter="NIFNIEConverter"
+						converterMessage="#{msg['registro.identificacion.novalida']}" />
+					
+
+					<p:outputLabel value="#{msg['user.nombre']}" for="nombre" />
+					<p:inputText id="nombre" value="#{usuarioBean.nombre}" required="true" requiredMessage="#{msg['registro.novacio']}" />
+					
+
+					<p:outputLabel value="#{msg['user.apellido1']}" for="apellido1" />
+					<p:inputText id="apellido1" value="#{usuarioBean.apellido1}" required="true" requiredMessage="#{msg['registro.novacio']}" />
+					
+					<p:outputLabel value="#{msg['user.apellido2']}" />
+					<p:inputText id="apellido2" value="#{usuarioBean.apellido2}" />
+					
+					<p:outputLabel value="#{msg['user.fechanacimiento']}"
+						for="fechaNacimiento" />
+					<p:calendar id="fechaNacimiento"
+						value="#{usuarioBean.fechaNacimiento}" showOn="button"
+						required="true" pattern="dd/MM/yyyy" navigator="true"
+						locale="#{logicaBean.language}" converter="FechaConverter"
+						readonlyInput="true" yearRange="c-100:c" />
+					
+					<p:outputLabel value="#{msg['user.captcha']}" for="nobot" />	
+					<p:captcha id="nobot" language="#{logicaBean.language}" required="true" requiredMessage="#{msg['registro.nobot']}"  />
+					
+					<f:facet name="footer">
+						
+						<p:commandButton value="#{msg['btn.siguiente']}"  action="#{logicaBean.altaNuevoUsuario(usuarioBean)}" onstart="waitingLayer('ON')" oncomplete="waitingLayer('OFF')">
+						<f:setPropertyActionListener target="#{logicaBean.operacion}" value="altaUsuario" />
+						</p:commandButton>
+					</f:facet>
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+		
+		<h:form id="formAutenticator"  rendered="#{usuarioBean.contenidoQR != null}">
+			<p:panel header="#{msg['registro.cabecera']}">
+				<h:panelGrid columns="2" cellpadding="5" footerClass="centrado">
+				
+					<p:outputLabel value="#{msg['user.nombre']}" for="nombreUsuario" />
+					<p:inputText id="nombreUsuario" value="#{usuarioBean.nombreUsuario}" readonly="true" />
+					
+					<p:outputLabel value="#{msg['user.googleauthenticator']}" for="googleAuthenticator" />
+					<o:graphicImage id="googleAuthenticator" value="#{generadorQR.getContenido(usuarioBean.contenidoQR)}" />
+					
+					<p:outputLabel value="#{msg['user.codigoFirma']}" for="codigoVerificacion" />
+					<p:inputText id="codigoVerificacion" value="#{usuarioBean.codigoVerificacion}" required="true" requiredMessage="#{msg['registro.novacio']}" />
+						
+					<f:facet name="footer">
+						<p:commandButton value="#{msg['btn.confirmaralta']}" update="formAcceso,formMenu" action="#{logicaBean.altaNuevoUsuario(usuarioBean)}">
+							<f:setPropertyActionListener target="#{logicaBean.operacion}" value="firmarAltaUsuario" />
+						</p:commandButton>
+					</f:facet>
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
 </html>

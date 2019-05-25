@@ -11,7 +11,7 @@
 					<div class="cbp-hsinner">
 					<h:form id="formMenu">
 						<ul class="cbp-hsmenu">
-							<h:panelGroup rendered="#{!loginBean.estaLogeado()}">
+							<h:panelGroup rendered="#{!usuarioBean.estaIdentificado}">
 								<li>
 									<p:commandLink action="/formularios/registrarusuario?faces-redirect=true">
 										<h:outputText value="#{msg['menu.registrarusuario']}"/>	
@@ -22,7 +22,7 @@
 							<li>
 								<a href="#">#{msg['menu.perfil']}</a>
 								<ul class="cbp-hssubmenu">
-									<h:panelGroup rendered="#{!loginBean.estaLogeado()}">
+									<h:panelGroup rendered="#{!usuarioBean.estaIdentificado}">
 										<li>
 											<p:commandLink action="/formularios/changepassword?faces-redirect=true" >
 												<p:graphicImage value="/resources/images/changepassword.png" title="#{msg['menu.perfil.cambiarpasword']}" alt="#{msg['menu.perfil.cambiarpasword']}"/>
@@ -31,7 +31,7 @@
 											</p:commandLink>
 										</li>
 									</h:panelGroup>
-									<h:panelGroup rendered="#{loginBean.estaLogeado()}">
+									<h:panelGroup rendered="#{usuarioBean.estaIdentificado}">
 									<li>
 										<p:commandLink action="/formularios/generarcodigo?faces-redirect=true">
 											<p:graphicImage value="/resources/images/generarcodigo.png" title="#{msg['menu.perfil.generacodigo']}" alt="#{msg['menu.perfil.generacodigo']}"/>
@@ -40,7 +40,7 @@
 										</p:commandLink>
 									</li>
 									</h:panelGroup>
-									<h:panelGroup rendered="#{loginBean.estaLogeado()}">
+									<h:panelGroup rendered="#{usuarioBean.estaIdentificado}">
 									<li>
 										<p:commandLink action="/formularios/cambiardatos?faces-redirect=true">
 											<p:graphicImage value="/resources/images/cambiardatos.png" title="#{msg['menu.perfil.cambiardatos']}" alt="#{msg['menu.perfil.cambiardatos']}"/>
@@ -54,7 +54,7 @@
 							<li>
 								<a href="#">#{msg['menu.documentos']}</a>
 								<ul class="cbp-hssubmenu cbp-hssub-rows">
-								<h:panelGroup rendered="#{loginBean.estaLogeado()}">
+								<h:panelGroup rendered="#{usuarioBean.estaIdentificado}">
 									<li>
 										<p:commandLink action="/formularios/firmardocumento?faces-redirect=true">
 											<p:graphicImage value="/resources/images/firmardocumento.png" title="#{msg['menu.documentos.firmar']}" alt="#{msg['menu.documentos.firmar']}"/>
@@ -72,7 +72,7 @@
 										</p:commandLink>
 									</li>
 									
-									<h:panelGroup rendered="#{loginBean.estaLogeado()}">
+									<h:panelGroup rendered="#{usuarioBean.estaIdentificado}">
 									<li>
 										<p:commandLink action="/formularios/verdocumentos?faces-redirect=true">
 											<p:graphicImage value="/resources/images/verdocumentos.png" title="#{msg['menu.documentos.ver']}" alt="#{msg['menu.documentos.ver']}"/>

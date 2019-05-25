@@ -29,6 +29,14 @@
   <param-name>javax.faces.PROJECT_STAGE</param-name>
   <param-value>Development</param-value>
  </context-param>
+ <context-param>
+        <param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+        <param-value>6LfzFaUUAAAAAJAqFSjIn4K9sDCy8XfIBgW3UR2-</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+        <param-value>6LfzFaUUAAAAAJylPV4yrHD7xfDFH__QhPG67x8d</param-value>
+    </context-param>
  <listener>
   <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
  </listener>

@@ -23,6 +23,8 @@
 	<script src="#{facesContext.externalContext.requestContextPath}/resources/js/modernizr.custom.js">_</script>
 	<script src="#{facesContext.externalContext.requestContextPath}/resources/js/cbpHorizontalSlideOutMenu.min.js">_</script>
 	<script src="#{facesContext.externalContext.requestContextPath}/resources/js/funciones.js">_</script>
+	<script src="#{facesContext.externalContext.requestContextPath}/resources/js/calendar-localization.js">_</script>
+	<script src="https://apis.google.com/js/api.js">_</script>
 </h:head>
 <h:body>
 	<div class="container">
@@ -34,7 +36,7 @@
 				<ui:include src="menu.xhtml" />
 			</ui:insert>
 			<div id="contenido">
-				<p:growl id="mensajes" showDetail="true" life="2000" />
+				<p:growl id="mensajes" showDetail="true" life="5000" />
 				<ui:insert name="content">
 					<ui:include src="content.xhtml" />
 				</ui:insert>

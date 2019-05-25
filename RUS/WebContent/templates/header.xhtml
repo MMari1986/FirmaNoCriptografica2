@@ -11,14 +11,14 @@
 				<h1>#{msg['ap.subtitle']}</h1>
 				<nav>
 					<h:form id="formAcceso">					
-						<p:commandLink action="/formularios/login?faces-redirect=true" styleClass="bp-icon bp-icon-drop" title="#{msg['ap.entrar']}" rendered="#{!loginBean.estaLogeado()}">
+						<p:commandLink action="/formularios/login?faces-redirect=true" styleClass="bp-icon bp-icon-drop" title="#{msg['ap.entrar']}" rendered="#{!usuarioBean.estaIdentificado}">
 							<span>#{msg['ap.entrar']}</span>
 							<f:setPropertyActionListener target="#{logicaBean.operacion}" value="login" />
 						</p:commandLink>
 						
-						<p:commandLink action="/index?faces-redirect=true" actionListener="#{loginBean.logout}" oncomplete="logout(xhr, status, args)" rendered="#{loginBean.estaLogeado()}" styleClass="bp-icon bp-icon-archive" title="#{msg['ap.salir']}" >
+						<p:commandLink action="#{logicaBean.terminarSesion(usuarioBean)}" rendered="#{usuarioBean.estaIdentificado}" styleClass="bp-icon bp-icon-archive" title="#{msg['ap.salir']}" >
 							<span>#{msg['ap.salir']}</span>
-							<f:setPropertyActionListener target="#{logicaBean.operacion}" value="invalidate" />
+							<f:setPropertyActionListener target="#{logicaBean.operacion}" value="INVALIDAR" />
 						</p:commandLink>
 					</h:form>
 				</nav>
