@@ -50,7 +50,7 @@ public class LogicaBean implements Serializable {
 	        	break;
 	        case "firmarAltaUsuario":
 	        	altaFirmada = gAuth.authorize(usuario.getClaveSecreta(), Integer.parseInt(usuario.getCodigoVerificacion()));
-	        	usuario.setEstaIdentificado(true);
+	        	usuario.setEstaIdentificado(altaFirmada);
 	        	break;
 		}
 		if(altaFirmada) {

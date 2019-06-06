@@ -21,6 +21,7 @@
 							<f:setPropertyActionListener target="#{logicaBean.operacion}" value="INVALIDAR" />
 						</p:commandLink>
 					</h:form>
+					<h:outputText escape="true" rendered="#{usuarioBean.estaIdentificado}" value="#{msg['ap.bienvenido']} #{usuarioBean.nombre} #{usuarioBean.apellido1}" />
 				</nav>
 			</header>	
 	</ui:composition>
