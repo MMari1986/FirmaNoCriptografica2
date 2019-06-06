@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>RUS</name>
+	<name>firmanocriptografica-web</name>
 	<comment></comment>
 	<projects>
+		<project>firmanocriptografica-ejb</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -2,10 +2,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>FirmaElectronicaEJB</groupId>
-	<artifactId>FirmaElectronicaEJB</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	
+	<parent>
+		  <groupId>com.unir.tfg</groupId>
+		  <artifactId>ear-proyecto</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>firmanocriptografica-ejb</artifactId>
 	<packaging>ejb</packaging>
+	
 	<dependencies>
 		<dependency>
 			<groupId>javax</groupId>
@@ -13,10 +19,16 @@
 			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 	<build>
-		<finalName>EJBPersistencia</finalName>
 		<sourceDirectory>ejbModule</sourceDirectory>
+		<finalName>firmanocriptografica-ejb</finalName>
 		<resources>
 			<resource>
 				<directory>ejbModule</directory>
@@ -39,6 +51,12 @@
 				<version>3.0.1</version>
 				<configuration>
 					<ejbVersion>3.2</ejbVersion>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+						</manifest>
+					</archive>
 				</configuration>
 			</plugin>
 		</plugins>
