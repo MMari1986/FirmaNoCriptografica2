@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ <parent>
+		<groupId>com.unir.tfg</groupId>
+		<artifactId>ear-proyecto</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>firmanocriptografica</artifactId>
+  <packaging>ear</packaging>
+  
+  <dependencies>
+    <dependency>
+      <groupId>com.unir.tfg</groupId>
+      <artifactId>firmanocriptografica-ejb</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <type>ejb</type>
+    </dependency>
+    <dependency>
+      <groupId>com.unir.tfg</groupId>
+      <artifactId>firmanocriptografica-web</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+  </dependencies>
+  
+  
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>3.0.1</version>
+        <configuration>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<modules>
+						<ejbModule>
+							<groupId>com.unir.tfg</groupId>
+							<artifactId>firmanocriptografica-ejb</artifactId>
+						</ejbModule>
+						<webModule>
+							<groupId>com.unir.tfg</groupId>
+							<artifactId>firmanocriptografica-web</artifactId>
+						</webModule>
+					</modules>
+
+				</configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
